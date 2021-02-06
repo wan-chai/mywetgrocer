@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "788921604392",
+    "project_id": "mywetgrocerapp",
+    "storage_bucket": "mywetgrocerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788921604392:android:dcb6fcc11df1c420c1d81d",
+        "android_client_info": {
+          "package_name": "com.wanchai.mywetgrocer_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788921604392-qtsgc7426resvvnvmo2p9na5h9qvgrvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjyB_9j4buw_XwAKLHg1sLmxhK4w90w30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788921604392-qtsgc7426resvvnvmo2p9na5h9qvgrvo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
