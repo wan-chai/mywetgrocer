@@ -9,11 +9,7 @@ class Cart {
   String price;
   String quantity = "";
   String subTotal = "";
-  //String total;
-  //String gpsLocation;
-  //String image;
   Timestamp createdAt;
-  //Timestamp updatedAt;
 
   Cart();
 
@@ -24,17 +20,11 @@ class Cart {
     price = data['price'];
     quantity = data['quantity'];
     subTotal = data['subTotal'];
-    //total = data['total'];
-    //gpsLocation = data['gpsLocation'];
-    //image = data['image'];
     createdAt = data['createdAt'];
-    //updatedAt = data['updatedAt'];
   }
 
   Map<String, dynamic> toMap() {
     return {
-      //'id': uuid,
-      //'uid': uid,
       'productId': productId,
       'productName': productName,
       'quantity': quantity,

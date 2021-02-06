@@ -20,14 +20,4 @@ class CartNotifier with ChangeNotifier {
     _currentCart = cart;
     notifyListeners();
   }
-
-  addCart(Cart cart) {
-    _cartList.insert(0, cart);
-    notifyListeners();
-  }
-
-  deleteCart(Cart cart) {
-    _cartList.removeWhere((_cart) => _cart.id == cart.id);
-    notifyListeners();
-  }
 }

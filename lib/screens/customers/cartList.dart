@@ -21,20 +21,11 @@ class _CartListState extends State<CartList> {
     getCarts(cartNotifier);
     super.initState();
   }
-  
- 
 
   @override
   Widget build(BuildContext context) {
     AuthNotifier authNotifier = Provider.of<AuthNotifier>(context);
     CartNotifier cartNotifier = Provider.of<CartNotifier>(context);
-
-    _onCartDeleted(Cart cart) {
-      Navigator.pop(context);
-      cartNotifier.deleteCart(cart);
-    }
-
-    //final user = Provider.of<User>(context);
 
     print("building CartList");
     print("uid: ${authNotifier.user.uid}");
@@ -69,7 +60,6 @@ class _CartListState extends State<CartList> {
             return ListTile(
               title: Text(cartNotifier.cartList[index].productName),
               
-              //subtitle: Text(cartNotifier.cartList[index].gpsLocation),
               subtitle: Text("RM${cartNotifier.cartList[index].price}/kg"),
               onTap: () {
                 cartNotifier.currentCart = cartNotifier.cartList[index];
@@ -88,15 +78,6 @@ class _CartListState extends State<CartList> {
         ),
         
       ),
-      
-/*
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.check_rounded),
-        foregroundColor: Colors.white,
-      ),
-*/
-      
       floatingActionButton: FlatButton(
             onPressed: (){
 

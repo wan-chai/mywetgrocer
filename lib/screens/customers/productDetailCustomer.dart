@@ -1,11 +1,7 @@
-import 'dart:io';
 import 'package:mywetgrocer_app/controller/database.dart';
-//import 'package:mywetgrocer_app/model/cart.dart';
 import 'package:mywetgrocer_app/model/product.dart';
 import 'package:flutter/material.dart';
-import 'package:mywetgrocer_app/model/user.dart';
 import 'package:mywetgrocer_app/notifier/authNotifier.dart';
-//import 'package:mywetgrocer_app/notifier/cartNotifier.dart';
 import 'package:mywetgrocer_app/notifier/productNotifier.dart';
 import 'package:provider/provider.dart';
 
@@ -23,24 +19,17 @@ class _ProductDetailCustomerState extends State<ProductDetailCustomer> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   Product _currentProduct;
-  //Cart _cart;
- //Product _setQuantity;
   String _imageUrl;
   String quantity;
   String subTotal;
   String prouctName;
   String price;
-  //File _imageFile;
-   //String locGPS = "";
  
   @override
   void initState() {
     super.initState();
     ProductNotifier productNotifier = Provider.of<ProductNotifier>(context, listen: false);
     _currentProduct = productNotifier.currentProduct;
-    //CartNotifier cartNotifier = Provider.of<CartNotifier>(context, listen: false);
-    //_cart = cartNotifier.cart;
-    //_setQuantity = Product();
     _imageUrl = _currentProduct.image;
   }
 
@@ -60,69 +49,8 @@ class _ProductDetailCustomerState extends State<ProductDetailCustomer> {
       );
   }
 
-
-  Widget _buildQuantityField() {
-                
-  }
-  Widget _buildSubTotalField() {
-    
-  }
-/*
-  Widget _buildGpsLocationFieldUpdating() {
-    return Text( 'GPS Location : ' + _currentProduct.gpsLocation);
-  }
-
-  Widget _buildGpsLocationField() {
-    return Text(
-        _currentProduct.gpsLocation = locGPS
-    );
-  }
-
-  void _getCurrentLocation() async {
-    final position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    print(position);
-
-    setState(() {
-      locGPS = "${position.latitude}, ${position.longitude}";
-    });
-  }
-*/
-/*
-  _onProductUploaded(Product product) {
-    ProductNotifier productNotifier = Provider.of<ProductNotifier>(context, listen: false);
-    productNotifier.addProduct(product);
-    Navigator.pop(context);
-  }
-  
-*/
-/*
-  _saveProduct() {
-    print('saveProduct Called');
-    if (!_formKey.currentState.validate()) {
-      return;
-    }
-
-    if(_formKey.currentState.validate()){
-
-   
-    }
-    
-    //print('form saved');
-
-    //uploadProductAndImage(_currentProduct, widget.isSelectProduct, _imageFile, _onProductUploaded);
-    //saveToCart(_cart, widget.isSelectProduct, _onProductUploaded);
-
-    //print("productName: ${_currentProduct.productName}");
-    //print("gpsLocation: ${_currentProduct.gpsLocation}");
-    //print("_imageFile ${_imageFile.toString()}");
-    //("_imageUrl $_imageUrl");
-  }
-  */
-
   @override
   Widget build(BuildContext context) {
-   // final user = Provider.of<User>(context);
-    //AuthNotifier user = Provider.of<AuthNotifier>(context);
     AuthNotifier authNotifier = Provider.of<AuthNotifier>(context);
     
     return Scaffold(
@@ -145,17 +73,6 @@ class _ProductDetailCustomerState extends State<ProductDetailCustomer> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30),
             ),
-            //widget.isUpdating ? _buildGpsLocationFieldUpdating() : _buildGpsLocationField(),
-            //widget.isUpdating ? SizedBox(height: 0) : 
-            /*ButtonTheme(
-                  child: RaisedButton(
-                    child: Text('Add GPS Location', style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      _getCurrentLocation();
-                    },
-                  ),
-                ),
-              */
             SizedBox(height: 15), 
             TextFormField(
               decoration: InputDecoration(labelText: 'Quantity'),

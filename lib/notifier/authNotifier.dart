@@ -6,7 +6,7 @@ class AuthNotifier with ChangeNotifier {
 
   FirebaseUser get user => _user;
 
-  get id => null; //?????
+  //get id => null;
 
   void setUser(FirebaseUser user) {
     _user = user;

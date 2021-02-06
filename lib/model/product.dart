@@ -5,10 +5,7 @@ class Product {
   String idSeller = 'abc123';
   String productName;
   String price;
-  //String quantity;
-  //String subTotal;
   String total;
-  //String gpsLocation;
   String image;
   Timestamp createdAt;
   Timestamp updatedAt;
@@ -20,10 +17,7 @@ class Product {
     idSeller = data['idSeller'];
     productName = data['productName'];
     price = data['price'];
-    //quantity = data['quantity'];
-    //subTotal = data['subTotal'];
     total = data['total'];
-    //gpsLocation = data['gpsLocation'];
     image = data['image'];
     createdAt = data['createdAt'];
     updatedAt = data['updatedAt'];
@@ -35,10 +29,7 @@ class Product {
       'idSeller': idSeller,
       'productName': productName,
       'price': price,
-      //'quantity': quantity,
-      //'subTotal': subTotal,
       'total': total,
-      //'gpsLocation': gpsLocation,
       'image': image,
       'createdAt': createdAt,
       'updatedAt': updatedAt

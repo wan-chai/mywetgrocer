@@ -1,11 +1,8 @@
 import 'package:mywetgrocer_app/controller/database.dart';
-import 'package:mywetgrocer_app/model/cart.dart';
 import 'package:mywetgrocer_app/notifier/authNotifier.dart';
 import 'package:mywetgrocer_app/notifier/productNotifier.dart';
 import 'package:mywetgrocer_app/screens/customers/cartlist.dart';
 import 'package:mywetgrocer_app/screens/customers/productDetailCustomer.dart';
-import 'package:mywetgrocer_app/screens/sellers/productDetail.dart';
-import 'package:mywetgrocer_app/screens/sellers/productForm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -65,7 +62,6 @@ class _ProductListCustomerState extends State<ProductListCustomer> {
                 fit: BoxFit.fitWidth,
               ),
               title: Text(productNotifier.productList[index].productName),
-              //subtitle: Text(productNotifier.productList[index].gpsLocation),
               subtitle: Text("RM${productNotifier.productList[index].price}/kg"),
               onTap: () {
                 productNotifier.currentProduct = productNotifier.productList[index];
