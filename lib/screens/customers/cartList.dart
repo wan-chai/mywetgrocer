@@ -60,7 +60,7 @@ class _CartListState extends State<CartList> {
             return ListTile(
               title: Text(cartNotifier.cartList[index].productName),
               
-              subtitle: Text("RM${cartNotifier.cartList[index].price}/kg"),
+              subtitle: Text("RM${cartNotifier.cartList[index].price}/kg X ${cartNotifier.cartList[index].quantity} = RM${cartNotifier.cartList[index].subTotal}"),
               onTap: () {
                 cartNotifier.currentCart = cartNotifier.cartList[index];
                 Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {

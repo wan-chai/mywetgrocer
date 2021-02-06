@@ -1,7 +1,6 @@
 import 'package:mywetgrocer_app/notifier/cartNotifier.dart';
 import 'package:mywetgrocer_app/notifier/productNotifier.dart';
 import 'package:mywetgrocer_app/screens/customers/productListCustomer.dart';
-import 'package:mywetgrocer_app/screens/sellers/productList.dart';
 import 'package:mywetgrocer_app/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
