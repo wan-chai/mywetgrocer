@@ -5,7 +5,7 @@ class Product {
   String idSeller = 'abc123';
   String productName;
   String price;
-  String total;
+  double total;
   String image;
   Timestamp createdAt;
   Timestamp updatedAt;

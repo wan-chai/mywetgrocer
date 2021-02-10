@@ -56,11 +56,13 @@ class _CartFormState extends State<CartForm> {
               style: TextStyle(fontSize: 30),
             ),
             SizedBox(height: 15), 
+          /*
             TextFormField(
               decoration: InputDecoration(labelText: 'Quantity'),
-              initialValue: _currentCart.quantity,
+              keyboardType: TextInputType.number,
+              //initialValue: quantity,
               style: TextStyle(fontSize: 20),
-              validator: (val) {
+              validator: (int val) {
                 if (val.isEmpty) {
                   return 'Quantity is required';
                 }
@@ -68,6 +70,23 @@ class _CartFormState extends State<CartForm> {
               },
               onChanged: (val) => setState(() => quantity = val),
             ),  
+          */
+
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Quantity'),
+              //initialValue: _currentProduct.quantity,
+              keyboardType: TextInputType.text,
+              style: TextStyle(fontSize: 20),
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return 'Quantity is required';
+                }
+
+                return null;
+              },
+              onChanged: (value) => setState(() => quantity = value),
+            ),
+          /*
             TextFormField(
               decoration: InputDecoration(labelText: 'Total'),
               initialValue: _currentCart.subTotal,
@@ -80,18 +99,19 @@ class _CartFormState extends State<CartForm> {
               },
               onChanged: (val) => setState(() => subTotal = val),
             ), 
+          */
           ]),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
                     if(_formKey.currentState.validate()) {
-                      await  updateCart(uid: authNotifier.user.uid, 
+                      await  saveUpdateToCart(uid: authNotifier.user.uid, 
                         productId: _currentCart.id,
                         productName: _currentCart.productName,
                         price: _currentCart.price,
                         quantity: quantity,
-                        subTotal: subTotal
+                        //subTotal: subTotal
                       );
                       print('cart saved');
                       print("uid: ${authNotifier.user.uid}");

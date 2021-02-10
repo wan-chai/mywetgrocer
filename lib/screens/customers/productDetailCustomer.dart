@@ -74,6 +74,7 @@ class _ProductDetailCustomerState extends State<ProductDetailCustomer> {
               style: TextStyle(fontSize: 30),
             ),
             SizedBox(height: 15), 
+            /*
             TextFormField(
               decoration: InputDecoration(labelText: 'Quantity'),
               style: TextStyle(fontSize: 20),
@@ -84,30 +85,47 @@ class _ProductDetailCustomerState extends State<ProductDetailCustomer> {
                 return null;
               },
               onChanged: (val) => setState(() => quantity = val),
-            ),  
+            ), 
+            */ 
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Quantity'),
+              //initialValue: _currentProduct.quantity,
+              keyboardType: TextInputType.text,
+              style: TextStyle(fontSize: 20),
+              validator: (String value) {
+                if (value.isEmpty) {
+                  return 'Quantity is required';
+                }
+
+                return null;
+              },
+              onChanged: (value) => setState(() => quantity = value),
+            ),
+          /*
             TextFormField(
               decoration: InputDecoration(labelText: 'Total'),
               style: TextStyle(fontSize: 20),
               validator: (val) {
                 if (val.isEmpty) {
-                  return 'Quantity is required';
+                  return 'Subtotal is required';
                 }
                 return null;
               },
               onChanged: (val) => setState(() => subTotal = val),
             ), 
+          */
           ]),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
                     if(_formKey.currentState.validate()) {
-                      await  saveToCart(uid: authNotifier.user.uid, 
+                      await  saveUpdateToCart(uid: authNotifier.user.uid, 
                         productId: _currentProduct.id,
                         productName: _currentProduct.productName,
                         price: _currentProduct.price,
                         quantity: quantity,
-                        subTotal: subTotal
+                        //subTotal: subTotal
                       );
                       print('cart saved');
                       print("uid: ${authNotifier.user.uid}");

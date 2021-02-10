@@ -164,7 +164,7 @@ Future<void> _chooseImagePicker() {
   Widget _buildPriceField() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Price in KG'),
-      initialValue: _currentProduct.price,
+      //initialValue: _currentProduct.price,
       keyboardType: TextInputType.text,
       style: TextStyle(fontSize: 20),
       validator: (String value) {

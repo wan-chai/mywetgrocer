@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:local_auth/auth_strings.dart';
 import 'package:mywetgrocer_app/model/product.dart';
 import 'package:mywetgrocer_app/model/cart.dart';
 import 'package:mywetgrocer_app/notifier/authNotifier.dart';
@@ -18,7 +19,11 @@ import 'package:uuid/uuid.dart';
   //collection reference
   final CollectionReference cartCollection = Firestore.instance.collection("cart");
 
-   saveToCart( {String uid, String productId, String productName, String price, String quantity, String subTotal}) async {
+  saveUpdateToCart( {String uid, String productId, String productName, String price, String quantity}) async {
+    double subTotal1 = double.parse(price) * int.parse(quantity);
+    String subTotal = subTotal1.toString();
+    
+    print("print check{$subTotal}");
     return await cartCollection.document('$productName$uid').setData({
       'id': uuid,
       'uid': uid,
@@ -26,10 +31,29 @@ import 'package:uuid/uuid.dart';
       'productName': productName,
       'quantity': quantity,
       'price': price,
+      //'subTotal': subTotal,
       'subTotal': subTotal,
       'createdAt': Timestamp.now()
     });
   }
+/*
+  updateCart( {String uid, String productId, String productName, double price, int quantity, double subTotal}) async {
+    double subTotal1 = quantity * price;
+    
+    print("print check{$subTotal1}");
+    return await cartCollection.document('$productName$uid').setData({
+      'id': uuid,
+      'uid': uid,
+      'productId': productId,
+      'productName': productName,
+      'quantity': quantity,
+      'price': price,
+      //'subTotal': subTotal,
+      'subTotal': subTotal1,
+      'createdAt': Timestamp.now()
+    });
+  }
+  */
 
 getCarts(CartNotifier cartNotifier) async {
   QuerySnapshot snapshot = await Firestore.instance
@@ -49,20 +73,6 @@ getCarts(CartNotifier cartNotifier) async {
 
  deleteCart( {String productName, String uid}) async {
     return await cartCollection.document('$productName$uid').delete();
-  }
-
-updateCart( {String uid, String productId, String productName, String price, String quantity, String subTotal}) async {
-    return await cartCollection.document('$productName$uid').setData({
-      'id': uuid,
-      'uid': uid,
-      'productId': productId,
-      'productName': productName,
-      'quantity': quantity,
-      'price': price,
-      'subTotal': subTotal,
-      'createdAt': Timestamp.now()
-    });
-    
   }
   
 login(User user, AuthNotifier authNotifier) async {

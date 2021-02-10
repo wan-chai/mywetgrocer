@@ -7,8 +7,9 @@ class Cart {
   String productId;
   String productName;
   String price;
-  String quantity = "";
-  String subTotal = "";
+  String quantity;
+  String subTotal;
+  String total;
   Timestamp createdAt;
 
   Cart();
@@ -16,11 +17,13 @@ class Cart {
   Cart.fromMap(Map<String, dynamic> data) {
     id = data['id'];
     uid = data['uid'];
+    productId = data['productId'];
     productName = data['productName'];
     price = data['price'];
     quantity = data['quantity'];
     subTotal = data['subTotal'];
     createdAt = data['createdAt'];
+    //total += subTotal;
   }
 
   Map<String, dynamic> toMap() {
@@ -34,3 +37,5 @@ class Cart {
     };
   }
 }
+
+
